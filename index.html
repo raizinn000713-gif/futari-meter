@@ -1,0 +1,310 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff0f5"><title>Futari Meter ♡</title><style>
+:root{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#765d68;background:#fff0f5}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:520px;margin:auto;min-height:100dvh;padding:18px 15px 96px;background:linear-gradient(145deg,var(--bg,#fff1f6),#fff9fa 75%)}.top{text-align:center;position:relative;margin:12px 0 15px}.brand{font-family:cursive;font-size:29px;color:#d66b99;font-weight:700}.sub{font-size:11px;color:#b894a3}.day{font-size:12px;color:#bc7d9c;margin-top:2px}.hamb{position:absolute;left:0;top:6px;background:none;font-size:24px;color:#c87c9f}.bell{position:absolute;right:2px;top:8px;font-size:20px}.room{text-align:center;background:#fff;border:1px solid #f8dbe7;border-radius:22px;padding:10px;margin-bottom:14px;font-size:12px}.card{background:#fff;border:1px solid #f5dce6;border-radius:23px;padding:16px;box-shadow:0 6px 18px #eaa8c21c;margin-bottom:13px}.heading{font-weight:750;color:#b65c87;font-size:17px;margin-bottom:12px}.couple{display:grid;grid-template-columns:1fr 1fr;gap:10px}.person{border-radius:23px;text-align:center;padding:12px 5px;background:#e9f5ff}.person.girl{background:#ffe8f1}.name{font-size:15px;font-weight:700;color:#689bc9}.girl .name{color:#d47eaa}.avatar{font-size:57px;margin:5px 0 0}.meter{width:118px;height:118px;margin:4px auto;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) var(--fill),#ffffffb8 0);padding:9px}.meter>div{width:100%;height:100%;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column}.number{font-size:28px;font-weight:800;color:var(--accent)}.unit{font-size:10px;color:#a6a0a6}.bubble{font-size:12px;background:white;border-radius:15px;padding:8px 4px;margin-top:9px;min-height:34px}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.mood{border-radius:16px;padding:14px 6px;font-weight:700;color:#b65c87;background:#ffe0ed}.mood.minus{background:#e8edff;color:#7f86bd}.hug{width:100%;padding:13px;border-radius:18px;background:#ffdaeb;color:#b65185;font-weight:800;margin-top:12px}.hug:disabled{opacity:.55}.muted{font-size:12px;color:#ad93a0}.center{text-align:center}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);background:#fffefa;border-top:1px solid #f5d7e3;display:grid;grid-template-columns:repeat(4,1fr);padding:9px 6px max(12px,env(safe-area-inset-bottom));z-index:5}.nav button{background:none;color:#a89aa0;font-size:12px;padding:5px}.nav button.active{color:#df699a;font-weight:800}.nav .ico{font-size:21px;display:block;margin-bottom:3px}.hidden{display:none!important}.switch{display:flex;background:#fff;border-radius:30px;padding:4px;gap:3px;margin-bottom:12px}.switch button{flex:1;border-radius:25px;background:transparent;padding:9px 3px;font-size:12px;color:#9f8995}.switch button.on{background:#ffe1ed;color:#c4578b;font-weight:800}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}.calcell{min-height:55px;border-radius:10px;background:#fff9fc;text-align:center;padding:5px 1px;font-size:12px;color:#856a79}.calcell.selected{outline:2px solid #ef93b7}.calcell .tiny{font-size:10px;font-weight:700;line-height:1.5}.blue{color:#5c9bd0}.pink{color:#d977a3}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{border-radius:17px;padding:15px 8px;text-align:center;background:#e8f4ff}.stat.g{background:#ffe8f1}.stat b{display:block;font-size:25px;margin:4px}.record{border-radius:17px;background:#fff9fc;padding:12px;margin:9px 0;border:1px solid #f7e2eb}.record p{margin:7px 0}.heart{background:#fff0f6;color:#d67aa0;border-radius:30px;padding:5px 10px}.heart.liked{background:#f7c8dc}.field{display:block;width:100%;padding:11px;border:1px solid #edcfdd;border-radius:12px;background:#fff;margin:7px 0 13px;color:#765d68}.primary{background:#ec91b6;color:#fff;border-radius:14px;padding:12px 18px;font-weight:700}.secondary{background:#f9e5ee;color:#ad5b83;border-radius:14px;padding:11px}.settings-row{padding:11px 0;border-bottom:1px solid #f7e5ed}.settings-row:last-child{border:0}.small{font-size:11px}.overlay{position:fixed;inset:0;background:#59435377;display:grid;place-items:center;padding:20px;z-index:20}.dialog{background:#fff9fc;width:min(420px,100%);border-radius:25px;padding:22px;max-height:85dvh;overflow:auto}.dialog h3{color:#c46d97;margin-top:0}.toast{position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:#7d6573;color:white;border-radius:25px;padding:10px 18px;z-index:30;white-space:nowrap;font-size:12px}.floatheart{position:fixed;bottom:25%;font-size:26px;animation:rise 2.5s ease-out forwards;pointer-events:none;z-index:40}@keyframes rise{to{transform:translateY(-300px) rotate(30deg);opacity:0}}.hint{background:#fff8e9;border-radius:13px;padding:10px;font-size:12px;margin-bottom:12px}
+
+/* ふんわりホーム改良版 */
+.couple{gap:9px}.person{position:relative;min-height:235px;padding:12px 7px 10px;overflow:hidden;border:2px solid #cde9ff;box-shadow:0 5px 12px #98c8e51c}.person.girl{border-color:#ffd0e2}.person .name{position:relative;z-index:2;text-align:left;padding-left:7px}.person .meter{position:absolute;top:46px;right:5px;width:91px;height:91px;padding:7px;z-index:2;box-shadow:0 2px 10px #ffffffb0}.person .number{font-size:25px}.person .unit{font-size:8px;max-width:65px}.person .avatar{position:absolute;top:64px;left:1px;width:94px;height:113px;margin:0;display:flex;align-items:end;justify-content:center}.chibi{width:100%;height:100%;filter:drop-shadow(0 3px 3px #6c729333)}.person .bubble{position:absolute;bottom:10px;left:7px;right:7px;margin:0;min-height:39px;padding:9px 17px 8px 8px;display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1.35;box-shadow:0 3px 9px #8ca4c51b;word-break:break-word}.bubble.editable{cursor:pointer;border:1px dashed #a9cfee}.girl .bubble.editable{border-color:#f1a5c4}.bubble .editmark{position:absolute;right:5px;top:3px;font-size:11px;opacity:.7}.bubble .btext{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.person .avatar svg{overflow:visible}.room{margin-bottom:12px}.person .meter>div{box-shadow:inset 0 0 0 1px #ffffff}.bubble:active{transform:scale(.98)}.person:not(.girl){background:linear-gradient(145deg,#e5f5ff,#d9edff)}.person.girl{background:linear-gradient(145deg,#ffe9f3,#ffdeeb)}
+
+/* v3: reference-matched home layout */
+:root{color:#4b3042;background:#ffe8f4}
+.app{max-width:520px;background:radial-gradient(ellipse at 12% 0%,#fff4fb 0%,transparent 45%),linear-gradient(160deg,#ffe7f3,#fff3fa 70%,#ffeaf5);padding:15px 10px 115px}
+.top{margin:15px 0 18px;padding:6px 0 10px}.brand{font-family:"Brush Script MT","Snell Roundhand",cursive;font-size:clamp(29px,8vw,43px);font-style:italic;font-weight:500;color:#4d263b;text-shadow:0 2px 0 #fff}.brand::before{content:'♡ ';color:#ef76ae}.brand::after{content:' ♡';color:#ef76ae}.sub{font-size:13px;color:#624153;font-weight:650}.hamb,.bell{background:#ffffffcc;border:1px solid #fff;border-radius:18px;padding:8px 11px;box-shadow:0 3px 10px #e6b3cb88;color:#694457}.bell{color:#e579ac}
+.room{border:2px solid white;background:#ffffffb9;box-shadow:0 5px 16px #db9ebc45;border-radius:40px;font-size:13px;padding:13px 5px;font-weight:650;color:#553747}
+.couple{gap:8px}.person{height:256px;min-height:0;border-radius:27px;padding:10px 5px;border:2px solid white;box-shadow:0 6px 15px #b89ab944, inset 0 1px 6px #fff}.person:not(.girl){background:linear-gradient(145deg,#f7fbff,#e2edff)}.person.girl{background:linear-gradient(145deg,#fff5fa,#ffe2f0)}
+.person .name{display:inline-block;float:left;border-radius:24px;background:linear-gradient(120deg,#86caff,#168ded);color:white;padding:7px 11px;font-size:13px;box-shadow:inset 0 2px 2px #ffffff77;text-shadow:0 1px 2px #7777}.person.girl .name{background:linear-gradient(120deg,#ffa4ce,#f14493)}
+.person .avatar{top:64px;left:0;width:52%;height:142px;align-items:center;overflow:hidden}.person .portrait{width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:multiply;border-radius:10px;filter:drop-shadow(0 2px 2px #a98a9840)}
+.person .meter{top:53px;right:6px;width:48%;height:auto;aspect-ratio:1;padding:8px;box-shadow:0 2px 7px #9eb2d088,0 0 0 4px #ffffff80;background:conic-gradient(var(--accent) var(--fill),#ffffff 0)}.person .meter>div{background:radial-gradient(circle at 40% 25%,white,#f9f4fc);box-shadow:inset 0 0 5px #d4bdd144}.person .number{font-size:clamp(25px,7vw,39px);color:#48334b}.person.girl .number{color:#e45797}.person .unit{font-size:10px;color:#8e8090}.person .bubble{left:11%;right:6%;bottom:14px;border:2px solid #299df0!important;border-radius:100px;min-height:46px;font-size:14px;font-weight:750;color:#423044;box-shadow:0 4px 7px #b4b1cc44}.person.girl .bubble{border-color:#f153a0!important}.person .bubble::before{content:'';position:absolute;top:-8px;left:15%;width:13px;height:13px;background:#fff;transform:rotate(45deg);border-left:2px solid #299df0;border-top:2px solid #299df0}.person.girl .bubble::before{border-color:#f153a0}
+.card{background:#ffffffb4;border:2px solid white;border-radius:30px;box-shadow:0 6px 16px #d8a4c05c;padding:17px 13px}.heading{font-size:19px;color:#573344}.mood{border:3px solid white;border-radius:40px;background:linear-gradient(#ffdfed,#ffb8d7);color:#ed3388;font-size:clamp(13px,4vw,20px);padding:14px 3px;box-shadow:0 4px 9px #d99ab956}.mood.minus{background:linear-gradient(#eee9ff,#cfc5ff);color:#7351d6}.hug{border:3px solid white;background:linear-gradient(#ffe9f3,#ffd1e7);border-radius:40px;color:#df5793;font-size:15px;box-shadow:0 3px 8px #d8a5bd66}
+.nav{border:2px solid white;border-radius:32px 32px 0 0;background:#fff8fce8;box-shadow:0 -3px 15px #dcb1ca66;gap:2px;padding:9px 8px max(13px,env(safe-area-inset-bottom))}.nav button{border-radius:35px;font-size:12px;font-weight:650}.nav button.active{background:#ffe1ee;color:#d62e83}.nav .ico{font-size:25px}
+
+/* v3.2: portraits are contained, with soft alpha edges; no hard rectangular clipping */
+.person{overflow:hidden;isolation:isolate}
+.person .avatar{position:absolute;top:61px;left:1%;width:67%;height:158px;overflow:visible;display:flex;align-items:center;justify-content:flex-start;z-index:1;pointer-events:none}
+.person .portrait{display:block;width:100%;height:100%;object-fit:contain;object-position:left center;mix-blend-mode:normal;border-radius:0;filter:drop-shadow(0 3px 3px #7c587e18)}
+.person .meter{z-index:3;right:4px;top:55px;width:47%}
+.person .bubble{z-index:4}
+@media(max-width:370px){.person .avatar{width:66%;height:145px;top:66px}.person .meter{width:47%;right:3px}}
+
+/* v3.3: reserve separate horizontal zones for character and meter */
+.person .avatar{top:74px;left:2%;width:54%;height:145px;overflow:visible;z-index:1;justify-content:center}
+.person .portrait{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.person .meter{top:55px;right:4px;width:44%;z-index:3}
+.person .bubble{z-index:4}
+@media(max-width:370px){.person .avatar{top:77px;left:1%;width:53%;height:137px}.person .meter{width:44%;right:3px}}
+
+/* v3.4: taller cards give full-size characters room without shrinking them. */
+.person{height:310px;min-height:310px;overflow:hidden}
+.person .avatar{position:absolute;top:100px;left:2%;width:83%;height:185px;display:flex;align-items:flex-end;justify-content:flex-start;overflow:visible;z-index:1;pointer-events:none}
+.person .portrait{display:block;width:100%;height:100%;object-fit:contain;object-position:left bottom;mix-blend-mode:normal;border-radius:0;filter:drop-shadow(0 3px 3px #7c587e18)}
+.person .meter{top:51px;right:5px;z-index:2}
+.person .bubble{bottom:10px;z-index:3}
+@media(max-width:370px){.person{height:300px;min-height:300px}.person .avatar{top:100px;left:1%;width:85%;height:176px}.person .meter{top:52px;right:3px}}
+
+/* v3.5: reference-balanced, independently sized character, meter and bubble */
+.person{height:263px;min-height:263px;overflow:hidden}
+.person .avatar{position:absolute;top:71px;left:2%;width:70%;height:157px;display:flex;align-items:flex-end;justify-content:flex-start;overflow:visible;z-index:2;pointer-events:none}
+.person .portrait{display:block;width:100%;height:100%;object-fit:contain;object-position:left bottom;mix-blend-mode:normal;border-radius:0;filter:drop-shadow(0 2px 3px #7c587e18)}
+.person .meter{position:absolute;top:46px;right:5px;width:46%;height:auto;aspect-ratio:1;z-index:3;padding:7px}
+.person .number{font-size:clamp(24px,6.5vw,35px)}
+.person .bubble{bottom:11px;z-index:4;min-height:44px}
+@media(max-width:370px){.person{height:252px;min-height:252px}.person .avatar{top:72px;left:1%;width:69%;height:148px}.person .meter{top:47px;right:3px;width:46%}}
+
+/* v3.6: restore solid character colors while keeping the v3.5 layout unchanged */
+.person .portrait{opacity:1;mix-blend-mode:normal}
+
+/* v3.8: trim sprite transparent margins; keep meter/card geometry unchanged */
+.person .avatar{top:64px;left:1%;width:77%;height:174px;align-items:flex-end;justify-content:flex-start;overflow:visible}
+.person .portrait{width:100%;height:100%;object-fit:contain;object-position:left bottom;opacity:1;mix-blend-mode:normal}
+@media(max-width:370px){.person .avatar{top:67px;left:1%;width:77%;height:164px}}
+/* v3.9: identical sprite canvases and fixed sizing; preserve layout */
+.person .portrait{object-fit:contain;object-position:center bottom}
+/* v4.0: lift both portraits without changing their scale, meter, bubble, or card */
+.person .avatar{top:34px}
+@media(max-width:370px){.person .avatar{top:37px}}
+
+/* Calendar polish v4.1 — scoped to calendar only; home design unchanged */
+#calendarPage .card{background:linear-gradient(160deg,#fffafd,#fff4fa);border:1px solid #f7dce9;box-shadow:0 7px 20px #d887b01a}
+#calendarPage .cal-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:5px 0 15px}
+#calendarPage .cal-title{font-size:20px;font-weight:850;color:#a75d83;white-space:nowrap}
+#calendarPage .cal-arrow{width:39px;height:39px;border-radius:50%;background:#ffe5f0;color:#b9608b;font-size:24px;font-weight:700}
+#calendarPage .calendar{gap:5px}
+#calendarPage .cal-week{font-size:11px;color:#b18e9e;text-align:center;padding:7px 0;font-weight:700}
+#calendarPage .cal-week:first-child{color:#ed8aa7}
+#calendarPage .cal-week:nth-child(7){color:#7db7e7}
+#calendarPage .calcell{min-height:65px;padding:6px 1px;border:1px solid #f8e7ef;background:#fff;border-radius:12px;display:flex;flex-direction:column;align-items:center;gap:3px;box-shadow:0 2px 4px #e9a8c012}
+#calendarPage .calcell.selected{outline:2px solid #e983b0;background:#fff0f7}
+#calendarPage .calcell.today{border-color:#f2a7c8}
+#calendarPage .calcell .date{font-weight:800;font-size:12px;color:#795b6c}
+#calendarPage .calcell .tiny{font-size:10px;border-radius:10px;padding:1px 3px;min-width:30px;line-height:1.35}
+#calendarPage .calcell .tiny.blue{background:#e6f3ff;color:#3787c4}
+#calendarPage .calcell .tiny.pink{background:#ffe5f0;color:#d45a92}
+#calendarPage .calcell .dot{font-size:10px;color:#e9a3bf}
+#calendarPage .cal-note{background:#fff1f7;border-radius:14px;padding:10px 12px;color:#ac7a94;font-size:11px;text-align:center;margin:12px 0}
+#calendarPage .cal-detail{border-top:1px dashed #f0c9db;padding-top:14px;margin-top:14px}
+#calendarPage .cal-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#calendarPage .cal-sum{padding:14px 8px;border-radius:17px;text-align:center;font-size:12px;font-weight:700}
+#calendarPage .cal-sum.boy{background:#eaf5ff;color:#448dc2}
+#calendarPage .cal-sum.girl{background:#ffe8f2;color:#cc6396}
+#calendarPage .cal-sum strong{display:block;font-size:26px;margin-top:4px}
+#calendarPage .cal-total{text-align:center;padding:14px 8px 2px;color:#ad7993}
+#calendarPage .cal-total strong{display:block;font-size:25px;color:#d973a2;margin:3px}
+
+/* v4.2 Compact calendar — no home layout changes */
+body:has(#calendarPage:not(.hidden)) .top,body:has(#calendarPage:not(.hidden)) .room{display:none}
+body:has(#calendarPage:not(.hidden)) .app{padding-top:10px}
+#calendarPage .card{padding:11px 12px;margin-bottom:8px;border-radius:19px}
+#calendarPage .heading{font-size:15px;margin-bottom:6px}
+#calendarPage .cal-top{margin:0 0 7px}
+#calendarPage .cal-title{font-size:17px}
+#calendarPage .cal-arrow{width:30px;height:30px;font-size:21px}
+#calendarPage .switch{margin-bottom:6px;padding:3px}
+#calendarPage .switch button{padding:6px 2px;font-size:11px}
+#calendarPage .calendar{gap:3px}
+#calendarPage .cal-week{padding:3px 0;font-size:10px}
+#calendarPage .calcell{min-height:37px;padding:3px 0;border-radius:9px;gap:0;box-shadow:none}
+#calendarPage .calcell .date{font-size:11px;line-height:1.25}
+#calendarPage .calcell .tiny{font-size:9px;min-width:0;padding:0 2px;line-height:1.15}
+#calendarPage .cal-note{margin:7px 0 0;padding:5px 6px;font-size:10px;line-height:1.35}
+#calendarPage .cal-summary{gap:6px}
+#calendarPage .cal-sum{padding:7px 4px;border-radius:12px;font-size:11px}
+#calendarPage .cal-sum strong{font-size:19px;margin-top:1px}
+#calendarPage .cal-total{padding:5px 0 0;font-size:11px}
+#calendarPage .cal-total strong{font-size:18px;display:inline;margin:0 5px}
+#calendarPage .cal-detail{margin-top:9px;padding-top:9px}
+@media(max-height:750px){#calendarPage .calcell{min-height:33px}#calendarPage .cal-note{display:none}}
+
+/* v4.3 — Compact records screen. Home/calendar/settings unchanged. */
+body:has(#recordsPage:not(.hidden)) .top,
+body:has(#recordsPage:not(.hidden)) .room {display:none}
+body:has(#recordsPage:not(.hidden)) .app {padding-top:10px}
+#recordsPage .card {
+  padding:12px 12px 16px;
+  border-radius:21px;
+  background:linear-gradient(155deg,#fffafd,#fff5fa);
+  border:1px solid #f5dce8;
+}
+#recordsPage .heading {
+  font-size:17px;
+  margin-bottom:10px;
+  text-align:center;
+}
+#recordsPage .switch {margin-bottom:10px;padding:3px}
+#recordsPage .switch button {padding:7px 2px;font-size:11px}
+#recordsPage .record {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  column-gap:8px;
+  row-gap:3px;
+  align-items:center;
+  padding:9px 11px;
+  margin:7px 0;
+  border-radius:15px;
+  background:#fffdfef0;
+  border:1px solid #f5e0ea;
+  box-shadow:0 2px 6px #dba9be12;
+}
+#recordsPage .record .small {
+  grid-column:1 / -1;
+  font-size:11px;
+  color:#927888;
+  line-height:1.4;
+}
+#recordsPage .record .small b {font-size:12px}
+#recordsPage .record p {
+  grid-column:1;
+  margin:0;
+  font-size:13px;
+  line-height:1.45;
+  color:#563849;
+  font-weight:650;
+  overflow-wrap:anywhere;
+}
+#recordsPage .record .heart {
+  grid-column:2;
+  grid-row:2;
+  min-width:40px;
+  min-height:36px;
+  padding:5px 9px;
+  font-size:15px;
+  font-weight:700;
+  border:1px solid #ffe3ef;
+}
+#recordsPage .record .heart.liked {color:#d52f7e;background:#ffd3e7}
+@media(max-width:370px){
+  #recordsPage .card {padding:10px 9px}
+  #recordsPage .record {padding:8px}
+  #recordsPage .record p {font-size:12px}
+}
+
+
+/* v4.4: keep records title and filter visible during page scrolling */
+#recordsPage .records-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  padding: 10px 4px 8px;
+  margin: -10px -4px 9px;
+  border-radius: 14px;
+  background: rgba(255,248,252,.97);
+  box-shadow: 0 5px 12px rgba(208,135,167,.10);
+}
+#recordsPage .records-sticky .heading {margin-bottom:8px}
+#recordsPage .records-sticky .switch {margin-bottom:0}
+
+
+/* v4.5 Settings: compact, touch-friendly layout; other screens unchanged */
+body:has(#settingsPage:not(.hidden)) .top,
+body:has(#settingsPage:not(.hidden)) .room {display:none}
+body:has(#settingsPage:not(.hidden)) .app {padding-top:10px}
+#settingsPage .card {padding:16px 14px 25px;border-radius:23px;background:linear-gradient(160deg,#fffafd,#fff5fa);border:1px solid #f6dbe9}
+#settingsPage .heading {text-align:center;font-size:20px;margin:0 0 3px}
+#settingsPage .settings-intro {text-align:center;color:#b47d9c;font-size:12px;margin:0 0 15px}
+#settingsPage .settings-row {padding:13px 14px;margin:10px 0;border:1px solid #f4dfeb;border-radius:17px;background:rgba(255,255,255,.88);box-shadow:0 3px 10px #d4a2b410}
+#settingsPage .settings-row b {display:block;color:#613c52;font-size:14px;margin-bottom:5px}
+#settingsPage .settings-row .muted {font-size:12px;line-height:1.5;margin:4px 0 9px;color:#9b7d8f}
+#settingsPage .settings-row button {width:100%;min-height:39px;border-radius:13px;font-size:13px;padding:8px 12px}
+#settingsPage .settings-row .field {width:100%;min-height:39px;box-sizing:border-box;margin:6px 0 9px;border-radius:12px}
+#settingsPage .settings-row button:disabled {opacity:.48}
+#settingsPage .card>.muted {font-size:11px;line-height:1.6;text-align:center;margin:16px 8px 0}
+#settingsPage {padding-bottom:28px}
+@media(max-width:370px){#settingsPage .card{padding:12px 10px 22px}#settingsPage .settings-row{padding:11px}}
+
+
+/* v4.6: compact settings cards and unobstructed bottom scrolling */
+#settingsPage .card {padding:11px 11px 18px;border-radius:20px}
+#settingsPage .heading {font-size:18px;margin-bottom:1px}
+#settingsPage .settings-intro {font-size:11px;margin-bottom:9px}
+#settingsPage .settings-row {padding:10px 11px;margin:7px 0;border-radius:15px}
+#settingsPage .settings-row b {font-size:13px;margin-bottom:3px}
+#settingsPage .settings-row .muted {font-size:11px;line-height:1.35;margin:3px 0 6px}
+#settingsPage .settings-row button {min-height:35px;padding:6px 10px;font-size:12px;border-radius:11px}
+#settingsPage .settings-row .field {min-height:36px;padding:5px 10px;margin:4px 0 6px;border-radius:11px;font-size:14px}
+#settingsPage .card>.muted {font-size:10px;margin:11px 5px 0}
+#settingsPage {padding-bottom:calc(130px + env(safe-area-inset-bottom, 0px))}
+@media(max-width:370px){#settingsPage .card{padding:10px 8px 16px}#settingsPage .settings-row{padding:9px}}
+
+/* v4.7: prevent native iOS date control from overflowing its settings card */
+#settingsPage .settings-row {min-width:0;max-width:100%}
+#settingsPage input#anniversary[type="date"] {
+  display:block;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+  -webkit-appearance:none;
+  appearance:none;
+  padding:6px 10px;
+  margin:5px 0 7px;
+  font-size:14px;
+  text-align:center;
+  border:1px solid #edcfdd;
+  border-radius:11px;
+  background:#fff;
+  color:#765d68;
+}
+#settingsPage input#anniversary[type="date"]::-webkit-date-and-time-value {min-width:0;text-align:center}
+#settingsPage input#anniversary[type="date"]::-webkit-datetime-edit {min-width:0;padding:0}
+.character-preview{display:flex;align-items:center;justify-content:center;gap:12px;background:#fff7fb;border:1px solid #f6dce9;border-radius:14px;padding:4px 10px;margin:7px 0 12px;color:#a66a8b;font-size:12px}.character-preview img{width:94px;height:94px;object-fit:contain} </style></head><body><main class="app" id="app"><header class="top"><button class="hamb" id="menu">☰</button><div class="brand">Futari Meter ♡</div><div class="sub">－ ふたりメーター －</div><div class="day" id="days"></div><button class="bell" id="bell">♡</button></header><div class="room" id="roomline"></div><section id="home"></section><section id="calendarPage" class="hidden"></section><section id="recordsPage" class="hidden"></section><section id="settingsPage" class="hidden"></section></main><nav class="nav" id="nav"><button data-page="home" class="active"><span class="ico">⌂</span>ホーム</button><button data-page="calendarPage"><span class="ico">▦</span>カレンダー</button><button data-page="recordsPage"><span class="ico">♡</span>きろく</button><button data-page="settingsPage"><span class="ico">⚙</span>設定</button></nav><div id="modal" class="overlay hidden"><div class="dialog" id="dialog"></div></div><div id="toast" class="toast hidden"></div>
+<script type="module">
+// Firebase 設定: Firebase コンソールの「プロジェクトの設定 → マイアプリ」からコピーしてください。
+const firebaseConfig = {apiKey:'',authDomain:'',databaseURL:'https://futari-meter-default-rtdb.asia-southeast1.firebasedatabase.app/',projectId:'futari-meter',appId:''};
+let db=null,auth=null,uid=null,dbApi=null,online=false,unsubscribe=null;
+const $=id=>document.getElementById(id), today=()=>new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Tokyo'}), stamp=()=>new Date().toISOString();
+const base=()=>({boy:{score:80,name:'彼氏',avatar:'1',bubble:'だいすき♡'},girl:{score:80,name:'彼女',avatar:'1',bubble:'ごきげん♡'},anniversary:'',records:{},hugs:{},theme:{boy:'blue',girl:'pink'}});
+let state=base(),room=localStorage.getItem('fm-room')||'',role=localStorage.getItem('fm-role')||'',page='home',filter='both',month=new Date().getMonth(),year=new Date().getFullYear(),selectedDay=0;
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const entries=()=>Object.entries(state.records||{}).map(([id,r])=>({...r,id})).sort((a,b)=>b.at.localeCompare(a.at));
+const partner=()=>role==='boy'?'girl':'boy';
+const nickname=r=>safe(state[r]?.name|| (r==='boy'?'彼氏':'彼女'));
+const announce=msg=>{const t=$('toast');t.textContent=msg;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2400)};
+function openModal(html){$('dialog').innerHTML=html;$('modal').classList.remove('hidden')};function closeModal(){$('modal').classList.add('hidden')};$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});
+function daysText(){if(!state.anniversary)return '';let start=new Date(state.anniversary+'T00:00:00+09:00');let now=new Date(today()+'T00:00:00+09:00');let d=Math.floor((now-start)/86400000)+1;return d>0?`付き合って ${d}日目 ♡`:''}
+function render(){document.documentElement.style.setProperty('--bg','#ffeaf5');$('days').textContent=daysText();$('roomline').innerHTML=room?`ふたりのおへや ♡ <b>${safe(room)}</b>　${online?'🟢 つながってる':'🧸 おためしモード'}`:'ふたりのおへやは まだ未設定 ♡';renderHome();renderCalendar();renderRecords();renderSettings();document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));['home','calendarPage','recordsPage','settingsPage'].forEach(p=>$(p).classList.toggle('hidden',p!==page))}
+function chibiSvg(r,avatar,score){
+  const stage=score>=100?6:score<20?0:score<40?1:score<60?2:score<80?3:score<95?4:5;
+  const variant=([1,2,3].includes(Number(avatar))?Number(avatar):1);
+  return `<img class="chibi portrait" src="characters/${r}-${variant}-${stage}.webp" alt="${r==='boy'?'彼氏':'彼女'}の表情" loading="eager" onerror="this.onerror=null;this.src='${r}-base.png'">`;
+}
+function renderHome(){const person=r=>{let p=state[r],score=Number(p.score)||0,editable=r===role;return `<div class="person ${r==='girl'?'girl':''}"><div class="name">${nickname(r)} ♡</div><div class="avatar">${chibiSvg(r,p.avatar,score)}</div><div class="meter" style="--accent:${r==='boy'?'#8fc7f2':'#f1a1c4'};--fill:${Math.max(0,Math.min(100,score))}%"><div><span class="number">${score}</span><span class="unit">${score>100?'あふれるきもち ♡':'きもちメーター'}</span></div></div><button class="bubble ${editable?'editable':''}" data-bubble="${r}" aria-label="${editable?'自分のひとことを編集':'相手のひとこと'}"><span class="btext">${safe(p.bubble||'ひとことをかいてね ♡')}</span>${editable?'<span class="editmark">✎</span>':''}</button></div>`};let sent=!!state.hugs?.[today()]?.[role];$('home').innerHTML=`<div class="couple">${person('boy')}${person('girl')}</div><div class="card"><div class="heading center">今日のきもちを伝える ♡</div><div class="two"><button class="mood" data-mood="plus">＋ うれしかった ♡</button><button class="mood minus" data-mood="minus">− かなしかった 🥺</button></div><button class="hug" id="hug" ${sent?'disabled':''}>${sent?'今日はぎゅー済み ♡':'🫂 ぎゅーをおくる ♡　相手に＋2'}</button><div class="muted center" style="margin-top:8px">ぎゅーは1日1回だけ ♡</div></div>`;document.querySelectorAll('[data-mood]').forEach(b=>b.onclick=()=>moodDialog(b.dataset.mood));document.querySelectorAll('[data-bubble]').forEach(b=>b.onclick=()=>{if(b.dataset.bubble===role)bubbleDialog();else announce('相手のひとことは変更できないよ ♡')});$('hug').onclick=sendHug;bindHearts()}
+function bubbleDialog(){if(!role)return announce('先に役割を選んでね');openModal(`<h3>いまのきもち ♡</h3><p class="muted">吹き出しに表示するひとことをかいてね。点数は変わらないよ ♡</p><textarea id="bubbleText" class="field" maxlength="80" rows="3" placeholder="いまの気持ちをひとこと ♡">${safe(state[role].bubble||'')}</textarea><div class="muted" id="bubbleCount">${(state[role].bubble||'').length}/80文字</div><button class="primary" id="bubbleSave">ひとことを保存 ♡</button> <button class="secondary" id="bubbleCancel">やめる</button>`);$('bubbleCancel').onclick=closeModal;$('bubbleText').oninput=()=>{$('bubbleCount').textContent=$('bubbleText').value.length+'/80文字'};$('bubbleSave').onclick=async()=>{let v=$('bubbleText').value.trim();closeModal();await mutate(s=>{s[role].bubble=v});announce('ひとことを更新したよ ♡')}}
+function recordHTML(r){let name=r.actor==='boy'?'💙 '+nickname('boy'):'🩷 '+nickname('girl');let v=Number(r.delta)||0;return `<div class="record"><div class="small">${name}　<span class="${r.actor==='boy'?'blue':'pink'}"><b>${v>0?'+':''}${v}</b></span>　${new Date(r.at).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</div><p>${safe(r.text||'きもちを記録したよ ♡')}</p><button class="heart ${r.likes?.[role]?'liked':''}" data-like="${safe(r.id)}">♡ ${Object.keys(r.likes||{}).length||''}</button></div>`}
+function bindHearts(){document.querySelectorAll('[data-like]').forEach(b=>b.onclick=()=>toggleLike(b.dataset.like))}
+function moodDialog(kind){openModal(`<h3>${kind==='plus'?'うれしかった ♡':'かなしかった 🥺'}</h3><label>点数：<b id="pointLabel">10</b> 点</label><input id="points" class="field" type="range" min="1" max="30" value="10" oninput="document.getElementById('pointLabel').textContent=this.value"><label>どんなことがあった？（任意）</label><textarea class="field" id="note" rows="3" maxlength="250" placeholder="今日の気持ちをひとこと ♡"></textarea><button class="primary" id="saveMood">きもちを残す ♡</button> <button class="secondary" id="cancel">やめる</button>`);$('cancel').onclick=closeModal;$('saveMood').onclick=async()=>{let n=Number($('points').value)*(kind==='plus'?1:-1),note=$('note').value.trim();closeModal();await mutate(s=>{s[role].score=Math.max(0,(Number(s[role].score)||0)+n);s.records[crypto.randomUUID()]={actor:role,delta:n,text:note,at:stamp(),likes:{}}});announce('きもちを記録したよ ♡')}}
+async function sendHug(){if(!role)return announce('先に役割を選んでね');let mutual=false,done=false;await mutate(s=>{s.hugs ||= {};s.hugs[today()] ||= {};if(s.hugs[today()][role])return;done=true;s.hugs[today()][role]=true;s[partner()].score=(Number(s[partner()].score)||0)+2;s.records[crypto.randomUUID()]={actor:role,delta:2,text:`${role==='boy'?'彼氏':'彼女'}からぎゅーが届いたよ ♡`,at:stamp(),likes:{},type:'hug',recipient:partner()};mutual=!!s.hugs[today()][partner()]});if(done){announce('ぎゅーを送ったよ ♡');if(mutual)hearts()}else announce('今日はもうぎゅーしたよ ♡')}
+function hearts(){for(let i=0;i<14;i++){let el=document.createElement('span');el.className='floatheart';el.textContent=i%2?'💗':'♡';el.style.left=(12+Math.random()*76)+'%';el.style.animationDelay=(Math.random()*.5)+'s';document.body.append(el);setTimeout(()=>el.remove(),3300)}}
+async function toggleLike(id){await mutate(s=>{let r=s.records[id];if(!r)return;r.likes||={};if(r.likes[role])delete r.likes[role];else r.likes[role]=true})}
+function renderCalendar(){
+ const localDay=at=>{const d=new Date(at);return {year:d.getFullYear(),month:d.getMonth(),day:d.getDate()}};
+ const all=entries().filter(r=>{const d=localDay(r.at);return d.year===year&&d.month===month});
+ const first=new Date(year,month,1).getDay(),last=new Date(year,month+1,0).getDate();
+ const current=new Date(),isCurrent=current.getFullYear()===year&&current.getMonth()===month;
+ let cells=['日','月','火','水','木','金','土'].map(w=>`<div class="cal-week">${w}</div>`).join('');
+ for(let i=0;i<first;i++)cells+='<div></div>';
+ for(let d=1;d<=last;d++){
+  const records=all.filter(r=>localDay(r.at).day===d);
+  const sum=who=>records.filter(x=>x.actor===who).reduce((n,x)=>n+Number(x.delta||0),0);
+  const has=who=>records.some(r=>r.actor===who),b=sum('boy'),g=sum('girl');
+  cells+=`<button class="calcell ${selectedDay===d?'selected':''} ${isCurrent&&current.getDate()===d?'today':''}" data-day="${d}" aria-label="${month+1}月${d}日"><span class="date">${d}</span>${filter!=='girl'&&has('boy')?`<span class="tiny blue">${b>0?'+':''}${b}</span>`:''}${filter!=='boy'&&has('girl')?`<span class="tiny pink">${g>0?'+':''}${g}</span>`:''}${!records.length?'':filter==='both'&&!has('boy')&&!has('girl')?'<span class="dot">♡</span>':''}</button>`;
+ }
+ const visible=all.filter(r=>filter==='both'||r.actor===filter);
+ const stats=who=>all.filter(r=>r.actor===who).reduce((n,r)=>n+Number(r.delta||0),0);
+ const b=stats('boy'),g=stats('girl');
+ const details=selectedDay?visible.filter(r=>localDay(r.at).day===selectedDay):[];
+ const count=who=>all.filter(r=>r.actor===who).length;
+ $('calendarPage').innerHTML=`<div class="card"><div class="heading center">📅 ふたりのカレンダー ♡</div><div class="cal-top"><button class="cal-arrow" id="prev" aria-label="前の月">‹</button><div class="cal-title">${year}年 ${month+1}月 ♡</div><button class="cal-arrow" id="next" aria-label="次の月">›</button></div><div class="switch">${[['both','💕 ふたり'],['boy','🩵 彼氏'],['girl','🩷 彼女']].map(([v,l])=>`<button data-filter="${v}" class="${filter===v?'on':''}">${l}</button>`).join('')}</div><div class="calendar">${cells}</div><div class="cal-note">🩵 彼氏の変化　🩷 彼女の変化<br>日付をタップすると、その日の思い出が見られるよ ♡</div>${selectedDay?`<div class="cal-detail"><div class="heading">${month+1}月${selectedDay}日のきもち ♡</div>${details.map(recordHTML).join('')||'<p class="muted">この日の記録はまだないよ ♡</p>'}</div>`:''}</div><div class="card"><div class="heading center">💕 ${month+1}月のきもちレポート</div><div class="cal-summary"><div class="cal-sum boy">🩵 ${nickname('boy')}<strong>${b>0?'+':''}${b}</strong><span>${count('boy')}件のきろく</span></div><div class="cal-sum girl">🩷 ${nickname('girl')}<strong>${g>0?'+':''}${g}</strong><span>${count('girl')}件のきろく</span></div></div><div class="cal-total">ふたりの合計<strong>${b+g>0?'+':''}${b+g} ♡</strong><span class="muted">今月のきろく ${all.length}件</span></div></div>`;
+ $('prev').onclick=()=>{month--;if(month<0){month=11;year--}selectedDay=0;render()};
+ $('next').onclick=()=>{month++;if(month>11){month=0;year++}selectedDay=0;render()};
+ document.querySelectorAll('#calendarPage [data-filter]').forEach(el=>el.onclick=()=>{filter=el.dataset.filter;render()});
+ document.querySelectorAll('#calendarPage [data-day]').forEach(el=>el.onclick=()=>{selectedDay=Number(el.dataset.day);render()});
+ bindHearts();
+}
+function renderRecords(){$('recordsPage').innerHTML=`<div class="card"><div class="records-sticky"><div class="heading">きろく（きもちの履歴）♡</div><div class="switch">${[['both','💕 ふたり'],['boy','💙 彼氏'],['girl','🩷 彼女']].map(([v,l])=>`<button data-filter="${v}" class="${filter===v?'on':''}">${l}</button>`).join('')}</div></div>${entries().filter(r=>filter==='both'||r.actor===filter).map(recordHTML).join('')||'<p class="muted">まだ記録がないよ ♡</p>'}</div>`;document.querySelectorAll('#recordsPage [data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;render()});bindHearts()}
+function renderSettings(){$('settingsPage').innerHTML=`<div class="card"><div class="heading">⚙ ふたりの設定 ♡</div><p class="settings-intro">ふたりらしいおへやにしよう ♡</p><div class="settings-row"><b>👤 あなたは ${role==='boy'?'💙 彼氏':role==='girl'?'🩷 彼女':'未設定'}</b><p class="muted">自分の名前とキャラクターを選べるよ</p><button class="secondary" id="profile">プロフィールを変える</button></div><div class="settings-row"><b>📅 付き合い始めた日 ♡</b><input class="field" id="anniversary" type="date" value="${safe(state.anniversary)}"><button class="secondary" id="saveAnniversary">日付を保存</button></div><div class="settings-row"><b>🏠 ふたりのおへや</b><p class="muted">おへやの合言葉：${safe(room||'未設定')}</p><button class="secondary" id="changeRoom">おへや・役割を変更</button></div><div class="settings-row"><b>💌 きろくのバックアップ</b><p class="muted">JSONファイルに保存できるよ</p><button class="secondary" id="export">書き出す</button></div><div class="settings-row"><b>🔄 自分のメーターをリセット</b><p class="muted">自分だけ80点に戻すよ。履歴は残るよ</p><button class="secondary" id="reset">リセットする</button></div><div class="settings-row"><b>🗑 ふたりの記録をすべて削除</b><p class="muted">ふたりの承認が必要。安全な承認機能は準備中だよ</p><button class="secondary" disabled>準備中</button></div><p class="muted">🔔 プッシュ通知・自動バックアップは、Firebase連携と送信設定を整えてから追加するよ。</p></div>`;$('profile').onclick=profileDialog;$('changeRoom').onclick=setupDialog;$('saveAnniversary').onclick=async()=>{let date=$('anniversary').value;await mutate(s=>{s.anniversary=date});announce('記念日を保存したよ ♡')};$('export').onclick=()=>{let blob=new Blob([JSON.stringify({exportedAt:stamp(),room,data:state},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='futari-meter-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('reset').onclick=()=>{if(!confirm('自分のメーターを80点に戻す？ 記録は残るよ。'))return;mutate(s=>{s[role].score=80;s.records[crypto.randomUUID()]={actor:role,delta:0,text:'メーターを80点にリセットしたよ ♡',at:stamp(),likes:{},type:'reset'}})}}
+function profileDialog(){openModal(`<h3>じぶんのプロフィール ♡</h3><label>おなまえ</label><input class="field" id="pname" maxlength="18" value="${nickname(role)}"><label>キャラクター</label><select class="field" id="pavatar">${[1,2,3].map(a=>`<option value="${a}" ${String(state[role].avatar)===String(a)?'selected':''}>${role==='boy'?['','黒髪マッシュ','茶髪センター分け','明るい茶髪'][a]:['','お団子ヘア','黒髪ロング','茶髪ボブ'][a]}</option>`).join('')}</select><div class="character-preview" id="characterPreview"></div><label>ひとこと</label><input class="field" id="pbubble" maxlength="32" value="${safe(state[role].bubble)}"><button class="primary" id="psave">保存する ♡</button>`);const updatePreview=()=>{const a=Number($('pavatar').value)||1;const score=Number(state[role].score)||0;const st=score>=100?6:score<20?0:score<40?1:score<60?2:score<80?3:score<95?4:5;$('characterPreview').innerHTML=`<img src="characters/${role}-${a}-${st}.webp" alt="キャラクタープレビュー"><span>いまの点数：${score}点 ♡</span>`};$('pavatar').onchange=updatePreview;updatePreview();$('psave').onclick=async()=>{let n=$('pname').value.trim(),a=$('pavatar').value,b=$('pbubble').value.trim();closeModal();await mutate(s=>{s[role].name=n||s[role].name;s[role].avatar=a;s[role].bubble=b});announce('プロフィールを保存したよ ♡')}}
+function setupDialog(){openModal(`<h3>ふたりのおへや ♡</h3><p class="muted">ふたりで同じ合言葉を使ってね。自分の役割も選ぼう！</p><label>合言葉（英数字）</label><input class="field" id="roomInput" maxlength="24" value="${safe(room)}" placeholder="例：LOVE2026"><label>あなたは？</label><select class="field" id="roleInput"><option value="boy" ${role==='boy'?'selected':''}>💙 彼氏</option><option value="girl" ${role==='girl'?'selected':''}>🩷 彼女</option></select><button class="primary" id="join">このおへやに入る ♡</button><p class="muted">※ 体験モードではこの端末に保存。Firebase設定後はふたりで共有できるよ。</p>`);$('join').onclick=async()=>{let v=$('roomInput').value.trim().toUpperCase();if(!/^[A-Z0-9_-]{4,24}$/.test(v)){announce('合言葉は英数字4〜24文字にしてね');return}room=v;role=$('roleInput').value;localStorage.setItem('fm-room',room);localStorage.setItem('fm-role',role);closeModal();await subscribe();render()}}
+async function mutate(fn){if(online&&dbApi&&db){try{let ref=dbApi.ref(db,'rooms/'+room);await dbApi.runTransaction(ref,old=>{let s=old||base();s.boy||=base().boy;s.girl||=base().girl;s.records||={};s.hugs||={};fn(s);return s});return}catch(e){announce('保存に失敗したよ。通信を確認してね');console.error(e);return}}fn(state);localStorage.setItem('fm-demo-'+room,JSON.stringify(state));render()}
+async function subscribe(){if(unsubscribe){unsubscribe();unsubscribe=null}online=false;if(!room||!role){state=base();render();return}if(db&&dbApi&&uid){unsubscribe=dbApi.onValue(dbApi.ref(db,'rooms/'+room),snap=>{state=snap.val()||base();online=true;render()},e=>{console.error(e);online=false;announce('Firebaseの読み込みに失敗したよ');render()});return}try{state=JSON.parse(localStorage.getItem('fm-demo-'+room)||'null')||base()}catch{state=base()}render()}
+async function initFirebase(){if(!firebaseConfig.apiKey||!firebaseConfig.appId)return;try{const appMod=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'),authMod=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js');dbApi=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js');let app=appMod.initializeApp(firebaseConfig);auth=authMod.getAuth(app);await authMod.signInAnonymously(auth);uid=auth.currentUser?.uid;db=dbApi.getDatabase(app);await subscribe()}catch(e){console.error(e);announce('Firebaseに接続できず体験モードで起動したよ')}}
+$('nav').onclick=e=>{let b=e.target.closest('[data-page]');if(!b)return;page=b.dataset.page;render();window.scrollTo(0,0)};$('menu').onclick=()=>{page='settingsPage';render()};$('bell').onclick=()=>announce('通知はこれから実装するよ ♡');await subscribe();await initFirebase();if(!room||!role)setupDialog();
+</script></body></html>
+
+<!-- Character pack v3.7: 14 isolated transparent character sprites -->
